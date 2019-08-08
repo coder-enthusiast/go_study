@@ -1,3 +1,6 @@
+/**
+go 变量声明
+ */
 package main
 
 import (
