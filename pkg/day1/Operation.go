@@ -10,6 +10,8 @@ func main()  {
    b=&a  //取出a变量的地址 给指针 b
    fmt.Println(a,*b)
 
+   fmt.Println(b)//取内存地址值
+
 
 
 }
