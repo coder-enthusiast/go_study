@@ -22,6 +22,7 @@ func main()  {
 
 
 	var aa = make([]string, 3,10)
+	fmt.Println(len(aa),cap(aa))//长度为3 容量为10
 	for i := 0; i < 10; i++ {
 		aa = append(aa, fmt.Sprintf("%v", i))
 	}
