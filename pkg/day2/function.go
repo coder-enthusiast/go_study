@@ -75,14 +75,6 @@ func operate(op string) (func(a int,b int) int) {
 	}
 }
 
-//闭包
-func bb(x int) func(int) int  {
-	fmt.Println("x 的值",x)
-	return func(i int) int {
-		i+=x
-		return i
-	}
-}
 
 
 func main() {
@@ -117,5 +109,40 @@ func main() {
 	b:=bb(10)
 	fmt.Println(b(10))
 	fmt.Println(b(20))
+
+
+	//延迟运行
+	fmt.Println("start")
+	defer fmt.Println(11)
+	defer fmt.Println(22)
+	defer fmt.Println(33)
+	fmt.Println("end")
+	fmt.Println("defer 开始执行")
+	deferTest()
 }
 
+//闭包
+/**
+闭包 我觉得就是 1.返回值是个函数 2.返回的函数改变了原函数的值 这样才能构成闭包
+ */
+func bb(x int) func(int) int  {
+	return func(i int) int {
+		x+=i
+		return x
+	}
+}
+// 非闭包
+func not_bb(x int) func(int) int  {
+	return func(i int) int {
+		i+=x
+		return i
+	}
+}
+
+func deferTest()  {
+	fmt.Println("deferTest方法的第一行代码")
+	defer fmt.Println("deferTest 1")
+	defer fmt.Println("deferTest 2")
+	defer fmt.Println("deferTest 3")
+	fmt.Println("方法的最后一行代码")
+}
