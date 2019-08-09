@@ -12,13 +12,18 @@ func main()  {
 	fmt.Println(utf8.RuneCountInString(str))
 	//字符数
 
-	fmt.Println()
-	for _,s:=range str  {
+
+/*	for _,s:=range str  {
 		if(len(string(s))>=3){
 			fmt.Printf(string(s))
 		}
 	}
 
-	fmt.Println(str)
+	fmt.Println(str)*/
+	 strs := []rune(str)
+	 fmt.Println(len(strs))
+	 strs[0]='A'
+	 fmt.Println(string(strs))
+	 fmt.Println(str==string(strs))
 
 }
