@@ -31,15 +31,15 @@ func f4() (x int) {
 	return 5
 }
 func main() {
-	/*fmt.Println(f1())
+	fmt.Println(f1())
 	fmt.Println(f2())
 	fmt.Println(f3())
-	fmt.Println(f4())*/
+	fmt.Println(f4())
 
-	fmt.Println(s1())
+	/*fmt.Println(s1())
 	fmt.Println(s2())
 	fmt.Println(s3())
-	fmt.Println(s4())
+	fmt.Println(s4())*/
 }
 
 func s1() int {
