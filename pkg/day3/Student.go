@@ -9,7 +9,33 @@ type student struct {
 	age  int
 }
 
-func main() {
+func getNewStudent(name string,age int) *student  {
+	return &student{
+		name,
+		age,
+	}
+}
+
+func (s *student)setName(name string)  {
+	s.name=name
+}
+
+func (s *student) getName() string  {
+	return s.name
+}
+
+func main()  {
+	stu:=getNewStudent("zzq",20)
+	//因为stu是一个指针类型 正常情况下应根据22行代码取值 22行和23行结果一致 是因为go的语法糖
+	fmt.Println((*stu).age)
+	fmt.Println(stu.age)
+
+	stu.setName("qwe")
+	fmt.Println(stu.getName())
+
+}
+
+func test() {
 	m := make(map[string]*student)
 	stus := []student{
 		{name: "小王子", age: 18},

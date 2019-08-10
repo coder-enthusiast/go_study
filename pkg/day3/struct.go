@@ -14,18 +14,27 @@ type MyInt int
 //int的别名
 type alinInt = int
 
+//Go中 开头字母大写是公开访问的 小写是私有的
 type Person struct {
-	 name string
-	 age int
+	 Name string
+	 Age int
 }
 
-func main()  {
+func (s *Person) setName(name string)  {
+	s.Name=name
+}
+
+func (s *Person) setAge(age int)  {
+	s.Age=age
+}
+
+func main() {
 	var myint MyInt
 	var aint alinInt
-	fmt.Println(reflect.TypeOf(myint),reflect.TypeOf(aint))
+	fmt.Println(reflect.TypeOf(myint), reflect.TypeOf(aint))
 
 	var person Person
-	person.age=18
-	person.name="zzq"
+	person.setName("zzq")
+	person.setAge(18)
 	fmt.Println(person)
 }
