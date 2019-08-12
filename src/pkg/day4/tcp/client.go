@@ -19,9 +19,6 @@ var inputRead *bufio.Reader
 var conn net.Conn
 var err error
 
-
-
-
 /**
  设置昵称
  */
@@ -34,7 +31,7 @@ func setName()  {
 }
 
 /**
-心跳
+检测心跳
  */
 func isActive()  {
 
@@ -89,6 +86,9 @@ func send(conn net.Conn,msg []byte)  {
 		return
 	}
 }
+/**
+加入群聊
+ */
 func join()  {
 	var message = Msg
 	message.MsgType=1
