@@ -9,19 +9,18 @@ import (
 	"strings"
 )
 
-
 var Msg struct{
 	MsgType int //1加入群聊 2正常消息 3心跳检测
 	Name string
 	Msg string
 }
-
-/**
-socket
- */
+//服务器是否启动
 var isSatrt=false
-
+//监听器
+var listen  net.Listener
+//用户map
 var conns =make(map[string]net.Conn)
+
 func main() {
 	fmt.Println("==============GO 局域网聊天系统 服务器端===============")
 
@@ -50,8 +49,9 @@ func main() {
 
 
 }
-
-var listen  net.Listener
+/**
+启动服务器
+ */
 func start()  {
 	listen,err :=net.Listen("tcp","127.0.0.1:8899")
 	if err!=nil{
@@ -70,8 +70,9 @@ func start()  {
 		go process(conn)
 	}
 }
-
-
+/**
+处理客户端请求
+ */
 func process(conn net.Conn)  {
 	//关闭链接
 	defer conn.Close()
@@ -105,7 +106,9 @@ func process(conn net.Conn)  {
 		}
 	}
 }
-
+/**
+菜单
+ */
 func menu()  {
 	if !isSatrt {
 		fmt.Println("1.启动服务器")
