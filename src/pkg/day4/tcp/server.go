@@ -88,15 +88,16 @@ func process(conn net.Conn)  {
 		message := Msg
 		json.Unmarshal([]byte(str),&message)
 		switch message.MsgType {
-		case 1: for k,v := range conns {
-			if k!=message.Name&&message.MsgType!=1 {
+		case 1:
+			conns[message.Name]=conn
+			for _,v := range conns {
 				v.Write([]byte(str))
-			}
+
 		}
-		conns[message.Name]=conn
+
 		case 2:
 			for k,v := range conns {
-				if k!=message.Name&&message.MsgType!=1 {
+				if k!=message.Name {
 					v.Write([]byte(str))
 				}
 			}

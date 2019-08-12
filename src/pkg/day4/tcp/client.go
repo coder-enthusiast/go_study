@@ -94,11 +94,7 @@ func join()  {
 	message.MsgType=1
 	message.Name=name
 	msgJson, _ :=json.Marshal(message)
-	_,err := conn.Write(msgJson)
-	if err != nil {
-		fmt.Println("LOG 链接服务器失败",err)
-		return
-	}
+	send(conn,msgJson)
 }
 
 func main() {
