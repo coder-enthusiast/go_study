@@ -22,6 +22,7 @@ func main()  {
 		member.Address=fmt.Sprintf("%s%d","china",i)
 		member.Phone=fmt.Sprintf("%s%d","131",i)
 		members=append(members,member)
+
 	}
 
 	membersJson, error := json.Marshal(members)

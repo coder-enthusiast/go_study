@@ -3,17 +3,19 @@ package main
 import (
 	"fmt"
 	"reflect"
+	"time"
 )
 type student struct {
 	name string `sql:"NAME"`
 	age  int
 }
 func main() {
-	var s  student
+	/*var s  student
 	s.name="zzq"
 	s.age=1
 	data, _ := insertSql(s)
-	fmt.Println(data)
+	fmt.Println(data)*/
+	fmt.Println(time.Now().String())
 
 }
 

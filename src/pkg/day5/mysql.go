@@ -49,7 +49,7 @@ func main() {
 	/*a:= getById(1)
 	fmt.Println(a)
 	all := getAll()
-	fmt.Println(all)*/
+	fmt.Println(all)
 	//fmt.Println(save())
 	var a A
 	//a.name="朱志强"
@@ -57,21 +57,22 @@ func main() {
 	//a.age=18
 	//a.address="qweerr"
 	sql,pa := getDeleteSql(a,"id")
-	fmt.Println(sql,pa)
+	fmt.Println(sql,pa)*/
+	save()
 }
 
 func save() int64 {
 	var a A
 	a.name="朱志强"
-	sql,para := insertSql(a)
-
-	stmt, err := db.Prepare(sql)
+	//sql,para := insertSql(a)
+//insert into "+tableName+"(%s) values (%s)
+	stmt, err := db.Prepare("insert into a(name,`create`) values (?,?)")
 	if err != nil {
 		fmt.Printf("prepare failed, err:%v\n", err)
 	}
 	defer stmt.Close()
 
-	result,err := stmt.Exec(para...)
+	result,err := stmt.Exec("朱志强","2019-08-13 17:28:55")
 	if err !=nil {
 		logrus.WithFields(logrus.Fields{}).Error(err)
 		return 0
@@ -173,6 +174,7 @@ func getById(id int) A {
 	}
 	return t
 }
+
 
 
 /**
