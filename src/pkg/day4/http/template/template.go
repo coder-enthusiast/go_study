@@ -7,12 +7,12 @@ import (
 )
 
 func sayHello(w http.ResponseWriter, r *http.Request)  {
-	tmpl,err:=template.ParseFiles("hello.html")
+	tmpl,err:=template.ParseFiles("/Users/abcd/go_work/go_study/src/pkg/day4/http/template/hello.html")
 	if err != nil {
 		fmt.Println("err",err)
 		return
 	}
-	tmpl.ExecuteTemplate(w,"word","HELLO GO!")
+	tmpl.Execute(w,"HELLO GO!")
 
 }
 
