@@ -1,0 +1,2 @@
+{"level":"info","msg":"这是一条log","name":"zzq","time":"2019-08-13T09:39:45+08:00"}
+{"level":"error","msg":"这是一条ERROR log","name":"zzq","time":"2019-08-13T09:39:45+08:00"}
