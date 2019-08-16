@@ -56,7 +56,7 @@ func main() {
 	//满血
 	runtime.GOMAXPROCS(runtime.NumCPU())
 	startTime := time.Now().Unix()
-	var num int64 = 10000000000;
+	var num int64 = 1000000;
 
 	cpu:=2
 	ch := make(chan int64,cpu)
